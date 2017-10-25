@@ -25,7 +25,10 @@ def procedure():
         try:
             a = table.cssselect('.text13')[0]
             book_name = a.text_content()
+
             book_url = a.get('href')
+            if re.match('//', book_url):
+                book_url = 'https:' + book_url
 
             table_txt = table.text_content()
 
