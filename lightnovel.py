@@ -20,7 +20,7 @@ def procedure():
 
     feed = feedgen.feed.FeedGenerator()
     feed.id(url)
-    feed.link(href=url)
+    feed.link(href=url, rel='self')
     feed.title(title)
 
     for table in html.cssselect('#StoreBodyContainer table[width="360"]'):
