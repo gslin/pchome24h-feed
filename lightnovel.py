@@ -19,7 +19,7 @@ def procedure():
     book_publisher_re = re.compile('出版社：\s*(\S+)', re.M)
 
     feed = feedgen.feed.FeedGenerator()
-    feed.author('https://github.com/gslin/pchome24h-feed')
+    feed.author({'name': 'PChome 24h Feed Generator'})
     feed.id(url)
     feed.link(href=url, rel='self')
     feed.title(title)
