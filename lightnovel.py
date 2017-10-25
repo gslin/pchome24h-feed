@@ -21,7 +21,7 @@ def procedure():
     feed = feedgen.feed.FeedGenerator()
     feed.author({'name': 'PChome 24h Feed Generator'})
     feed.id(url)
-    feed.link(href=url, rel='self')
+    feed.link(href=url, rel='alternate')
     feed.title(title)
 
     for table in html.cssselect('#StoreBodyContainer table[width="360"]'):
