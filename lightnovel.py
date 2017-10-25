@@ -15,9 +15,6 @@ def procedure():
     html = lxml.html.fromstring(r.text)
     title = html.cssselect('title')[0].text_content()
 
-    book_date_re = re.compile('出版日：\s*(\S+)', re.M)
-    book_publisher_re = re.compile('出版社：\s*(\S+)', re.M)
-
     feed = feedgen.feed.FeedGenerator()
     feed.author({'name': 'PChome 24h Feed Generator'})
     feed.id(url)
@@ -32,8 +29,8 @@ def procedure():
 
             table_txt = table.text_content()
 
-            book_date = book_date_re.search(table_txt)[0]
-            book_publisher = book_publisher_re.search(table_txt)[0]
+            book_date = re.search('出版日：\s*(\S+)', table_txt, re.M)[0]
+            book_publisher = re.search('出版社：\s*(\S+)', table_txt, re.M)[0]
 
             k = '%s - %s - %s' % (book_name, book_publisher, book_date)
 
