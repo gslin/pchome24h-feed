@@ -6,7 +6,7 @@ import lxml.html
 import re
 import requests
 
-def procedure():
+def magic():
     url = 'https://24h.pchome.com.tw/?m=store&f=book_show&RG_NO=DJAZ&pageType=0'
 
     r = requests.get(url);
@@ -48,4 +48,4 @@ def procedure():
     print(str(feed.atom_str(), 'utf-8'))
 
 if __name__ == '__main__':
-    procedure()
+    magic()

@@ -8,7 +8,7 @@ import requests
 import sys
 import urllib
 
-def procedure(keyword):
+def magic(keyword):
     url = 'https://ecshweb.pchome.com.tw/search/v3.3/all/results?q=%s&page=1&sort=new/dc' % (urllib.parse.quote_plus(keyword))
 
     r = requests.get(url);
@@ -50,4 +50,4 @@ def procedure(keyword):
     print(str(feed.atom_str(), 'utf-8'))
 
 if __name__ == '__main__':
-    procedure(sys.argv[1])
+    magic(sys.argv[1])
