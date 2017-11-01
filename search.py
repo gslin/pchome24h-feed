@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-def procedure():
+import sys
+
+def procedure(keyword):
     pass
 
 if __name__ == '__main__':
-    procedure()
+    procedure(sys.argv[1])
