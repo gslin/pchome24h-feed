@@ -6,9 +6,10 @@ import html
 import json
 import requests
 import sys
+import urllib
 
 def procedure(keyword):
-    url = 'https://ecshweb.pchome.com.tw/search/v3.3/all/results?q=%s&page=1&sort=new/dc' % (keyword)
+    url = 'https://ecshweb.pchome.com.tw/search/v3.3/all/results?q=%s&page=1&sort=new/dc' % (urllib.parse.quote_plus(keyword))
 
     r = requests.get(url);
 
