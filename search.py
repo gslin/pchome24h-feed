@@ -27,6 +27,12 @@ def procedure(keyword):
             prod_name = prod['name']
             prod_desc = prod['describe']
 
+            # URL
+            if prod['cateId'][0] == 'D':
+                prod_url = 'https://24h.pchome.com.tw/prod/' + prod['Id']
+            else:
+                prod_url = 'https://mall.pchome.com.tw/prod/' + prod['Id']
+
         except:
             pass
 
