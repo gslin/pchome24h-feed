@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import feedgen.feed
+import json
 import requests
 import sys
 
@@ -17,6 +18,8 @@ def procedure(keyword):
     feed.id(url)
     feed.link(href=url, rel='alternate')
     feed.title(title)
+
+    body = json.loads(r.text)
 
     print(str(feed.atom_str(), 'utf-8'))
 
