@@ -32,6 +32,7 @@ def procedure(keyword):
                 prod_url = 'https://24h.pchome.com.tw/prod/' + prod['Id']
             else:
                 prod_url = 'https://mall.pchome.com.tw/prod/' + prod['Id']
+            img_url = 'https://a.ecimg.tw%s' % (prod['picB'])
 
         except:
             pass
