@@ -37,6 +37,12 @@ def procedure(keyword):
 
             body = '%s<br/><img alt="" src="%s"/>' % (html.escape(prod_desc), html.escape(img_url))
 
+            entry = feed.add_entry()
+            entry.content(body, type='xhtml')
+            entry.id(prod_url)
+            entry.link(href=prod_url)
+            entry.title(prod_name)
+
         except:
             pass
 
