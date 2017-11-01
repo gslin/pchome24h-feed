@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import feedgen.feed
+import html
 import json
 import requests
 import sys
@@ -33,6 +34,8 @@ def procedure(keyword):
             else:
                 prod_url = 'https://mall.pchome.com.tw/prod/' + prod['Id']
             img_url = 'https://a.ecimg.tw%s' % (prod['picB'])
+
+            body = '%s<br/><img alt="" src="%s"/>' % (html.escape(prod_desc), html.escape(img_url))
 
         except:
             pass
