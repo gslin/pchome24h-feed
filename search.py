@@ -21,6 +21,15 @@ def procedure(keyword):
 
     body = json.loads(r.text)
 
+    for prod in body['prods']:
+        try:
+            # Product name & description
+            prod_name = prod['name']
+            prod_desc = prod['describe']
+
+        except:
+            pass
+
     print(str(feed.atom_str(), 'utf-8'))
 
 if __name__ == '__main__':
