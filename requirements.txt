@@ -1,3 +1,4 @@
 feedgen>=0
 lxml>=0
+requests>=0
 selenium>=0
