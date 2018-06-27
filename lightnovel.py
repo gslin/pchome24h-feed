@@ -10,7 +10,6 @@ def magic():
     url = 'https://24h.pchome.com.tw/?m=store&f=book_show&RG_NO=DJAZ&pageType=0'
 
     r = requests.get(url);
-    r.encoding = 'big5';
 
     html = lxml.html.fromstring(r.text)
     title = html.cssselect('title')[0].text_content()
