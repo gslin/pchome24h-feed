@@ -30,19 +30,19 @@ def magic():
     feed.link(href=url, rel='alternate')
     feed.title(title)
 
-    for table in html.cssselect('#ProdListContainer'):
+    for item in html.cssselect('#ProdListContainer'):
         try:
-            a = table.cssselect('.prod_name a')[0]
+            a = item.cssselect('.prod_name a')[0]
             book_name = a.text_content()
 
             book_url = a.get('href')
             if re.match('//', book_url):
                 book_url = 'https:' + book_url
 
-            table_txt = table.text_content()
+            item_txt = item.text_content()
 
-            book_date = re.search('出版日：\s*(\S+)', table_txt, re.M)[0]
-            book_publisher = re.search('出版社：\s*(\S+)', table_txt, re.M)[0]
+            book_date = re.search('出版日：\s*(\S+)', item_txt, re.M)[0]
+            book_publisher = re.search('出版社：\s*(\S+)', item_txt, re.M)[0]
 
             k = '%s - %s - %s' % (book_name, book_publisher, book_date)
 
