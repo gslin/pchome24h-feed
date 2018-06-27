@@ -30,7 +30,7 @@ def magic():
     feed.link(href=url, rel='alternate')
     feed.title(title)
 
-    for item in html.cssselect('#ProdListContainer'):
+    for item in html.cssselect('#ProdListContainer dl'):
         try:
             a = item.cssselect('.prod_name a')[0]
             book_name = a.text_content()
