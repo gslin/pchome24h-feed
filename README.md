@@ -4,10 +4,10 @@ Generate feed of 24h.pchome.com.tw.
 
 ## Requirement
 
-You will need to install chromium and chromedriver, and make the later executable:
+You will need to install chromium and chromedriver, and make the later executable.  In Ubuntu, you can use the following commands:
 
-    apt install chromium-browser chromium-chromedriver
-    ln -s /usr/lib/chromium-browser/chromedriver /usr/bin
+    sudo apt install chromium-browser chromium-chromedriver
+    sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin
 
 Running with Python 3.x, and install modules with `requirements.txt`:
 
