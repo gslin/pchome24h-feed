@@ -4,14 +4,24 @@
 import feedgen.feed
 import lxml.html
 import re
-import requests
+import selenium
+import selenium.webdriver.chrome.options
 
 def magic():
     url = 'https://24h.pchome.com.tw/books/store/?q=/R/DJAZ/new'
 
-    r = requests.get(url);
+    chrome_options = selenium.webdriver.chrome.options.Options()
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--incognito')
+    chrome_options.binary_location = '/usr/bin/chromium-browser'
 
-    html = lxml.html.fromstring(r.text)
+    b = selenium.webdriver.Chrome(chrome_options=chrome_options)
+    b.get(url)
+    html = b.find_element_by_tag_name('html').get_attribute('innerHTML')
+    b.close()
+
+    html = lxml.html.fromstring(html)
     title = html.cssselect('title')[0].text_content()
 
     feed = feedgen.feed.FeedGenerator()
@@ -20,9 +30,9 @@ def magic():
     feed.link(href=url, rel='alternate')
     feed.title(title)
 
-    for table in html.cssselect('#StoreBodyContainer table[width="360"]'):
+    for table in html.cssselect('#ProdListContainer'):
         try:
-            a = table.cssselect('.text13')[0]
+            a = table.cssselect('.prod_name a')[0]
             book_name = a.text_content()
 
             book_url = a.get('href')
