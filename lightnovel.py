@@ -7,7 +7,7 @@ import re
 import requests
 
 def magic():
-    url = 'https://24h.pchome.com.tw/?m=store&f=book_show&RG_NO=DJAZ&pageType=0'
+    url = 'https://24h.pchome.com.tw/books/store/?q=/R/DJAZ/new'
 
     r = requests.get(url);
 
